@@ -1,0 +1,131 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    
+    box-sizing: border-box;
+    
+    margin: 0;
+    padding: 14px;
+    
+    font-family: "Roboto", arial, sans-serif;
+    
+    font-size: 11px;
+    line-height: 14px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    /* background-image: url("../imgs/background_2.png"); */
+}
+
+#find, #known, #suggestions {
+    width: 280px;
+    height: 350px;
+    
+    margin: 20px;
+    
+    padding: 20px;
+    border: 1px solid #aaa;
+    
+    background-color: #fff;
+}
+
+#known > b, #suggestions > b {
+    display: block;
+    
+    font-size: 12px;
+    line-height: 18px;
+    
+    padding: 4px 6px;
+    padding-left: 0;
+    margin-bottom: 12px;
+}
+
+.songs {
+    height: 312px;
+    
+    overflow-y: scroll;
+}
+
+.songs div {
+    padding: 4px 0;
+    
+    cursor: pointer;
+    
+    position: relative;
+}
+
+.songs div b {
+    font-size: 11px;
+    line-height: 14px;
+    
+    display: block;
+    
+    margin: 0;
+    padding-bottom: 2px;
+}
+
+.songs div p {
+    font-size: 11px;
+    line-height: 14px;
+    
+    margin: 0;
+    padding: 0;
+    
+    color: #444;
+}
+
+.songs div .quality {
+    font-size: 11px;
+    line-height: 14px;
+    
+    margin: 0;
+    padding: 0;
+    
+    color: #080;
+    
+    position: absolute;
+    
+    top: 4px;
+    right: 0;
+}
+
+.no_songs {
+    margin-top: -312px;
+    
+    height: 312px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: #888;
+}
+
+#find_input {
+    width: 280px;
+    
+    box-sizing: border-box;
+    
+    font-size: 11px;
+    line-height: 14px;
+    
+    font-family: inherit;
+    color: #444;
+    
+    padding: 6px;
+    border: 1px solid #aaa;
+    
+    margin-bottom: 12px;
+}
+
+#find_input:focus {
+    border: 1px solid #6bf;
+    outline: 1px solid #6bf;
+}
+
+#find_input::placeholder {
+    color: #888;
+}

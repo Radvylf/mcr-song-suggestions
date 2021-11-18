@@ -9,7 +9,7 @@ window.onload = async () => {
     var suggestions = document.getElementById("suggestions_songs");
     var suggestions_no_songs = document.getElementById("suggestions_no_songs");
     
-    const counts_url = "https://gist.githubusercontent.com/RedwolfPrograms/abf9d3e7e1c9a03af6ee1ffdbcb620cb/raw/29c4a6ca0d81805c72a89655508cae1a8782bc85/mcr.json";
+    const counts_url = "https://gist.githubusercontent.com/RedwolfPrograms/abf9d3e7e1c9a03af6ee1ffdbcb620cb/raw/mcr.json";
     
     const songs = [
         [0, "Romance", "I Brought You My Bullets, You Brought Me Your Love"],
@@ -177,11 +177,13 @@ window.onload = async () => {
         
         var ranking = worths.map((w, i) => [w, i]).sort((s_0, s_1) => s_1[0] - s_0[0]);
         
+        console.log(ranking);
+        
         /*var worth = counts.map(s => s.map((n, i) => n * (s.reduce((u, d, k) => u + (you_like.includes(k) ? Math.max(0, d) / likes[k] : 0) * 200, 0) / you_like.length | 0)));
         
         var ranking = likes.map((_, k) => [worth.reduce((u, w) => u + w[k], 0) / likes[k] ** 0.875, k]).sort((s_0, s_1) => s_1[0] - s_0[0]);*/
         
-        for (var song of ranking.filter((r, i) => !you_like.includes(r[1]) && (i < 10 || r[0] >= 1.5)))
+        for (var song of ranking.filter(r => !you_like.includes(r[1])).filter((r, i) => i < 10 || r[0] >= 1.5))
             suggestions.appendChild(divify(songs[song[1]], song[0]));
     };
     

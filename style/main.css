@@ -32,6 +32,12 @@ body {
     background-color: #fff;
 }
 
+@media screen and (max-width: 1092px) {
+    #find, #known, #suggestions {
+        flex-grow: 1;
+    }
+}
+
 #known > b, #suggestions > b {
     display: block;
     
@@ -105,7 +111,7 @@ body {
 }
 
 #find_input {
-    width: 280px;
+    width: 100%;
     
     box-sizing: border-box;
     

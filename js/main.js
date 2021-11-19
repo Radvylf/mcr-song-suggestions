@@ -158,14 +158,6 @@ window.onload = async () => {
         known_no_songs.style.display = "none";
         suggestions_no_songs.style.display = "none";
         
-        /*
-        
-            For all people who like song_0:
-            
-                Sum opinions on song_1, multiplied by opinions on song_0
-        
-        */
-        
         var worths = [...likes].fill(0);
         
         for (var count of counts) {
@@ -175,15 +167,14 @@ window.onload = async () => {
                 worths[i] += count[i] * multiplier;
         }
         
-        var ranking = worths.map((w, i) => [w, i]).sort((s_0, s_1) => s_1[0] - s_0[0]);
+        var ranking = worths.map((w, i) => [w / likes[i] ** 0.875, i]).sort((s_0, s_1) => s_1[0] - s_0[0]).filter(r => !you_like.includes(r[1]));
         
-        console.log(ranking);
+        var multiplier = likes[ranking.find(r => r[0] == Math.max(...ranking.map(r => r[0])))[1]] ** 0.875;
         
-        /*var worth = counts.map(s => s.map((n, i) => n * (s.reduce((u, d, k) => u + (you_like.includes(k) ? Math.max(0, d) / likes[k] : 0) * 200, 0) / you_like.length | 0)));
+        for (var song of ranking)
+            song[0] *= multiplier;
         
-        var ranking = likes.map((_, k) => [worth.reduce((u, w) => u + w[k], 0) / likes[k] ** 0.875, k]).sort((s_0, s_1) => s_1[0] - s_0[0]);*/
-        
-        for (var song of ranking.filter(r => !you_like.includes(r[1])).filter((r, i) => i < 10 || r[0] >= 1.5))
+        for (var song of ranking.filter((r, i) => i < 10 || r[0] >= 1.5))
             suggestions.appendChild(divify(songs[song[1]], song[0]));
     };
     

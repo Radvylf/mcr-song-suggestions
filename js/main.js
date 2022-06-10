@@ -9,7 +9,7 @@ window.onload = async () => {
     var suggestions = document.getElementById("suggestions_songs");
     var suggestions_no_songs = document.getElementById("suggestions_no_songs");
     
-    const counts_url = "https://gist.githubusercontent.com/RedwolfPrograms/abf9d3e7e1c9a03af6ee1ffdbcb620cb/raw/mcr.json";
+    const counts_url = "https://gist.githubusercontent.com/Radvylf/abf9d3e7e1c9a03af6ee1ffdbcb620cb/raw/mcr.json";
     
     const songs = [
         [0, "Romance", "I Brought You My Bullets, You Brought Me Your Love"],
